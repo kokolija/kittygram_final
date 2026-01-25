@@ -34,4 +34,3 @@ services:
       - media_volume:/media/
     ports:
       - 9000:80
-      
