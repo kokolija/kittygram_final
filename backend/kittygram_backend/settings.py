@@ -3,7 +3,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env_path = BASE_DIR.parent / '.env'
+env_path = BASE_DIR / '.env'
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
