@@ -1,17 +1,13 @@
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
+SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-default-key-for-tests')
+DEBUG = 'True'
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
-
-ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', 'localhost').split(',')]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '158.160.82.37', 'kgv-kitty.hopto.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,12 +16,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework',
     'djoser',
     'cats.apps.CatsConfig',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,6 +52,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -67,6 +63,7 @@ DATABASES = {
         'PORT': os.getenv('DB_PORT', '5432')
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -118,3 +115,4 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 
 }
+
